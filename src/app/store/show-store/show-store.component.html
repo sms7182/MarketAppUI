@@ -1,0 +1,43 @@
+<div style="overflow:auto;">
+ <div class="mat-elevation-z8">
+     <mat-table [dataSource]="listData">
+         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+         <mat-row *matRowDef="let row;columns:displayedColumns;"></mat-row>
+         <ng-container matColumnDef="Options">
+             <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+             <mat-cell *matCellDef="let row">
+                 <button mat-icon-button (click)="onEdit(row)">
+                     <mat-icon>launch</mat-icon>
+                 </button>
+                 <button mat-icon-button (click)="onDelete(row.Id)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+             </mat-cell>
+         </ng-container>
+         <ng-container matColumnDef="Name">
+             <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+             <mat-header-cell *matCellDef="let element">{{element.Name}}</mat-header-cell>
+         </ng-container>
+         <ng-container matColumnDef="City">
+                <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.City}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="Address">
+                    <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.Address}}</mat-header-cell>
+                </ng-container>
+                <ng-container matColumnDef="Lat">
+                        <mat-header-cell *matHeaderCellDef>Lat</mat-header-cell>
+                        <mat-header-cell *matCellDef="let element">{{element.Lat}}</mat-header-cell>
+                 </ng-container>
+                 <ng-container matColumnDef="Lng">
+                        <mat-header-cell *matHeaderCellDef>Lng</mat-header-cell>
+                        <mat-header-cell *matCellDef="let element">{{element.Lng}}</mat-header-cell>
+                 </ng-container>
+                 <ng-container matColumnDef="State">
+                        <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+                        <mat-header-cell *matCellDef="let element">{{element.State}}</mat-header-cell>
+                 </ng-container>
+     </mat-table>
+ </div>
+</div>

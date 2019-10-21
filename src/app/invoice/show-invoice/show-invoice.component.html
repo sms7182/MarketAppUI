@@ -1,0 +1,41 @@
+<div style="overflow:auto;">
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="listData">
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+            <ng-container matColumnDef="Options">
+            <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon>launch</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onDelete(row.Id)">
+                        <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-cell> 
+            </ng-container>
+
+            <ng-container matColumnDef="Code">
+                <mat-header-cell *matHeaderCellDef>Code</mat-header-cell>
+                <mat-header-cell *matCellDef="let element">{{element.Code}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="StoreName">
+                    <mat-header-cell *matHeaderCellDef>StoreName</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.StoreName}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="TotalPrice">
+                    <mat-header-cell *matHeaderCellDef>TotalPrice</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.TotalPrice}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="CreationDate">
+                    <mat-header-cell *matHeaderCellDef>CreationDate</mat-header-cell>
+                    <mat-header-cell *matCellDef="let element">{{element.CreationDate}}</mat-header-cell>
+            </ng-container>
+            <ng-container matColumnDef="CreatedBy">
+                        <mat-header-cell *matHeaderCellDef>CreatedBy</mat-header-cell>
+                        <mat-header-cell *matCellDef="let element">{{element.CreatedBy}}</mat-header-cell>
+            </ng-container>
+    
+        </mat-table>
+    </div>
+    </div>
