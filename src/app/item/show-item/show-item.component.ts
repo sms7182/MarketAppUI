@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import{MatTableDataSource} from '@angular/material'
+import { Component, OnInit,ViewChild } from '@angular/core';
+import{MatTableDataSource,MatSort} from '@angular/material'
 import{Item} from 'src/app/models/item-model';
 import{ItemService} from 'src/app/services/item.service';
 
@@ -13,6 +13,7 @@ export class ShowItemComponent implements OnInit {
   constructor(private service:ItemService) { }
   listData:MatTableDataSource<any>;
   displayedColumns:string[]=['Options','Code','Name','Unit','UnitPrice']
+@ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
     this.refereshItemList();
   }
@@ -25,6 +26,7 @@ export class ShowItemComponent implements OnInit {
   refereshItemList(){
     this.service.getItemList().subscribe(data=>{
       this.listData=new MatTableDataSource(data);
+      this.listData.sort=this.sort;
     });
   }
 }

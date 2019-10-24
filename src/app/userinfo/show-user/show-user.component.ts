@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import { Component, OnInit ,ViewChild} from '@angular/core';
+import {MatTableDataSource,MatSort} from '@angular/material';
 import {UserInfo} from 'src/app/models/userinfo.model';
 import {UserinfoService} from 'src/app/services/userinfo.service';
 @Component({
@@ -12,7 +12,7 @@ export class ShowUserComponent implements OnInit {
   constructor(private service:UserinfoService) { }
   listData:MatTableDataSource<any>;
   displayedColumns:string[]=['Options','UserName']
-
+@ViewChild(MatSort,null) sort:MatSort;
   ngOnInit() {
     this.refereshUserList();
     }
@@ -27,6 +27,7 @@ export class ShowUserComponent implements OnInit {
   refereshUserList(){
     this.service.getAllUser().subscribe(data=>{
       this.listData=new MatTableDataSource(data);
+      this.listData.sort=this.sort;
     })
   }
 

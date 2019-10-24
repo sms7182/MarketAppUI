@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import { Component, OnInit ,ViewChild} from '@angular/core';
+import {MatTableDataSource, MatSort} from '@angular/material';
 import {Invoice} from 'src/app/models/invoice.model';
 import {InvoiceService} from 'src/app/services/invoice.service';
 @Component({
@@ -15,8 +15,9 @@ export class ShowInvoiceComponent implements OnInit {
   ngOnInit() {
    this.refreshInvList();
   }
+  @ViewChild(MatSort,null) sort: MatSort;
   
-  onEdit(inv:Invoice){
+   onEdit(inv:Invoice){
     console.log(inv);
   }
   onDelete(id:string){
@@ -26,6 +27,7 @@ export class ShowInvoiceComponent implements OnInit {
    
     this.service.getInvoiceListPerUser().subscribe(data=>{
       this.listData=new MatTableDataSource(data);
+      this.listData.sort=this.sort;
     });
     
   }
