@@ -23,6 +23,9 @@ export class ShowInvoiceComponent implements OnInit {
   onDelete(id:string){
     console.log(id);
   }
+  applyFilter(filterValue:string){
+    this.listData.filter=filterValue.trim().toLocaleLowerCase(); 
+  }
   refreshInvList(){
    
     this.service.getInvoiceListPerUser().subscribe(data=>{
