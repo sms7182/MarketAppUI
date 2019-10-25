@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import{MatTableModule,MatIconModule,MatButtonModule} from '@angular/material';
 import{MatSortModule} from '@angular/material';
+import{MatDialogModule} from '@angular/material'; 
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
@@ -56,9 +57,10 @@ import {ItemService} from 'src/app/services/item.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatTableModule,MatIconModule,MatButtonModule,HttpClientModule,MatSortModule
+    MatTableModule,MatIconModule,MatButtonModule,HttpClientModule,MatSortModule,MatDialogModule
   ], 
   providers: [InvoiceService,ItemService,UserinfoService,StoreService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AddItemComponent]
 })
 export class AppModule { }

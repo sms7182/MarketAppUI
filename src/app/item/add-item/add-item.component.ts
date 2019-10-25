@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import{MatDialogRef} from '@angular/material';
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogbox:MatDialogRef<AddItemComponent>) { }
 
   ngOnInit() {
   }
-
+  onClose(){
+     this.dialogbox.close(); 
+  }
 }
